@@ -73,7 +73,7 @@ Colour constraints:
 - Surfaces are solid colours. No decorative gradients, glassmorphism, backdrop-blur panels, glowing borders or floating-orb backgrounds.
 - Grid layouts must follow content hierarchy. Do not introduce decorative bento tiles or wrap every paragraph in a card.
 - Personality comes from bold scale changes, cropped real photography, solid navy colour fields, the logo’s red horizontal-bar motif and crisp motion—not decorative effects.
-- Header logo motion uses one 820ms left-to-right reveal and a single red-bar sweep on page entry. It never loops, never shifts layout and becomes fully static when reduced motion is requested.
+- Website lockups split the master artwork into four exact crops: emblem, name, specialty line and hospital bar. The header reveals these in sequence over roughly 900ms; the footer uses the transparent master with white-filtered name lines and the original red hospital bar. Motion never loops or shifts layout and becomes fully static when reduced motion is requested.
 - The small yellow from the orthopaedic mark may appear as a fine rule, locator dot or focus-adjacent accent, never as a large surface.
 
 ## 6. Image inventory and semantic tags
