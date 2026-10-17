@@ -1,10 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { hospital } from "@/data/hospital";
-import { BrandLogo } from "@/components/BrandLogo";
 
 const navItems = [
   ["Services", "#services"],
@@ -36,7 +36,13 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="shell header-inner">
         <Link className="brand" href="#top" aria-label="Daivit Hospital, back to top">
-          <BrandLogo animated />
+          <Image
+            src="/images/daivit/logo.png"
+            alt="Daivit Maternity and Orthopaedic Hospital"
+            width={176}
+            height={88}
+            priority
+          />
         </Link>
 
         <nav className="desktop-nav" aria-label="Main navigation">

@@ -184,97 +184,49 @@ h3 {
 }
 
 .brand {
-  width: clamp(14.5rem, 18vw, 16.25rem);
-  height: 4.15rem;
-  display: block;
-}
-
-.brand-lockup {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 3.5rem minmax(0, 1fr);
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.brand-symbol,
-.brand-name,
-.brand-specialty,
-.brand-hospital {
-  display: block;
-  overflow: hidden;
-}
-
-.brand-symbol {
-  width: 100%;
-  height: 4.05rem;
-  transform-origin: 52% 52%;
-}
-
-.brand-wordmark {
-  min-width: 0;
+  position: relative;
+  width: 9.5rem;
+  height: 3.25rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
 }
 
-.brand-name {
+.brand img {
   width: 100%;
-  height: 1.72rem;
+  height: auto;
+  animation: brand-logo-reveal 820ms var(--ease) both;
+  transition: transform 180ms var(--ease);
 }
 
-.brand-specialty {
+.brand::after {
+  position: absolute;
+  z-index: 2;
+  top: 57%;
+  left: 0;
   width: 100%;
-  height: 0.56rem;
-  margin-top: 0.03rem;
-}
-
-.brand-hospital {
-  width: 100%;
-  height: 0.92rem;
-  margin-top: 0.06rem;
+  height: 0.22rem;
+  content: "";
+  background: var(--red);
+  pointer-events: none;
   transform-origin: left center;
+  animation: brand-logo-sweep 820ms var(--ease) both;
 }
 
-.brand-lockup--light .brand-name image,
-.brand-lockup--light .brand-specialty image {
-  filter: brightness(0) invert(1);
+.brand:hover img {
+  transform: scale(1.015);
 }
 
-.brand-lockup--animated .brand-symbol {
-  animation: brand-emblem-arrive 720ms var(--ease) both;
-}
-
-.brand-lockup--animated .brand-name {
-  animation: brand-name-arrive 680ms 130ms var(--ease) both;
-}
-
-.brand-lockup--animated .brand-specialty {
-  animation: brand-detail-arrive 480ms 330ms var(--ease) both;
-}
-
-.brand-lockup--animated .brand-hospital {
-  animation: brand-hospital-arrive 520ms 390ms var(--ease) both;
-}
-
-@keyframes brand-emblem-arrive {
-  0% {
-    opacity: 0;
-    transform: translateY(0.35rem) rotate(-3deg) scale(0.86);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) rotate(0) scale(1);
-  }
-}
-
-@keyframes brand-name-arrive {
+@keyframes brand-logo-reveal {
   0% {
     opacity: 0;
     clip-path: inset(0 100% 0 0);
-    transform: translateX(-0.5rem);
+    transform: translateX(-0.45rem);
+  }
+
+  34% {
+    opacity: 1;
   }
 
   100% {
@@ -284,27 +236,24 @@ h3 {
   }
 }
 
-@keyframes brand-detail-arrive {
-  from {
+@keyframes brand-logo-sweep {
+  0% {
     opacity: 0;
-    transform: translateY(0.35rem);
+    transform: translateX(-105%) scaleX(0.2);
   }
 
-  to {
+  18% {
     opacity: 1;
-    transform: translateY(0);
   }
-}
 
-@keyframes brand-hospital-arrive {
-  from {
+  62% {
+    opacity: 1;
+    transform: translateX(0) scaleX(1);
+  }
+
+  100% {
     opacity: 0;
-    transform: scaleX(0.35);
-  }
-
-  to {
-    opacity: 1;
-    transform: scaleX(1);
+    transform: translateX(105%) scaleX(0.2);
   }
 }
 
@@ -1016,10 +965,10 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.about-brand-symbol {
+.about-mark img {
   position: relative;
   z-index: 1;
-  width: min(68%, 15rem);
+  width: 70%;
   height: auto;
 }
 
@@ -1254,31 +1203,10 @@ h3 {
   padding-bottom: 3rem;
 }
 
-.footer-brand {
-  width: min(20rem, 100%) !important;
-  height: 5.1rem;
-  display: block !important;
-  margin-bottom: 1.25rem !important;
-}
-
-.footer-brand .brand-lockup {
-  grid-template-columns: 4.2rem minmax(0, 1fr);
-}
-
-.footer-brand .brand-symbol {
-  height: 4.9rem;
-}
-
-.footer-brand .brand-name {
-  height: 2rem;
-}
-
-.footer-brand .brand-specialty {
-  height: 0.65rem;
-}
-
-.footer-brand .brand-hospital {
-  height: 1.05rem;
+.footer-grid img {
+  width: 12rem;
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 .footer-grid > div:first-child p {
@@ -1419,29 +1347,8 @@ h3 {
   }
 
   .brand {
-    width: 12.75rem;
-    height: 3.55rem;
-  }
-
-  .brand-lockup {
-    grid-template-columns: 3rem minmax(0, 1fr);
-    gap: 0.35rem;
-  }
-
-  .brand-symbol {
-    height: 3.4rem;
-  }
-
-  .brand-name {
-    height: 1.43rem;
-  }
-
-  .brand-specialty {
-    height: 0.48rem;
-  }
-
-  .brand-hospital {
-    height: 0.78rem;
+    width: 8.6rem;
+    height: 2.9rem;
   }
 
   .desktop-nav {
@@ -1785,13 +1692,15 @@ h3 {
     transition-duration: 0.01ms !important;
   }
 
-  .brand-lockup--animated .brand-symbol,
-  .brand-lockup--animated .brand-name,
-  .brand-lockup--animated .brand-specialty,
-  .brand-lockup--animated .brand-hospital {
+  .brand img {
     opacity: 1;
     clip-path: none;
     transform: none;
+    animation: none !important;
+  }
+
+  .brand::after {
+    opacity: 0;
     animation: none !important;
   }
 }

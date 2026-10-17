@@ -20,7 +20,6 @@ import {
   UserRound,
 } from "lucide-react";
 import { FacilityGallery } from "@/components/FacilityGallery";
-import { BrandLogo, BrandSymbol } from "@/components/BrandLogo";
 import { SiteHeader } from "@/components/SiteHeader";
 import { hospital, orthopaedicServices, supportServices, womenServices } from "@/data/hospital";
 
@@ -279,7 +278,7 @@ export default function Home() {
         <section id="about" className="about-band section-shell" aria-labelledby="about-title">
           <div className="shell about-grid">
             <div className="about-mark reveal" aria-hidden="true">
-              <BrandSymbol className="about-brand-symbol" />
+              <Image src="/images/daivit/logo-white.png" alt="" width={350} height={175} />
               <span />
             </div>
             <div className="about-copy reveal">
@@ -380,9 +379,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="shell footer-grid">
           <div>
-            <a className="footer-brand" href="#top" aria-label="Daivit Hospital, back to top">
-              <BrandLogo theme="light" />
-            </a>
+            <Image src="/images/daivit/logo-white.png" alt="Daivit Hospital" width={210} height={105} />
             <p>Maternity, women’s health and orthopaedic care in Adajan, Surat.</p>
           </div>
           <div>
