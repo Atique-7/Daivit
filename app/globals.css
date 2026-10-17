@@ -184,77 +184,16 @@ h3 {
 }
 
 .brand {
-  position: relative;
   width: 9.5rem;
   height: 3.25rem;
   display: flex;
   align-items: center;
   overflow: hidden;
-  isolation: isolate;
 }
 
 .brand img {
   width: 100%;
   height: auto;
-  animation: brand-logo-reveal 820ms var(--ease) both;
-  transition: transform 180ms var(--ease);
-}
-
-.brand::after {
-  position: absolute;
-  z-index: 2;
-  top: 57%;
-  left: 0;
-  width: 100%;
-  height: 0.22rem;
-  content: "";
-  background: var(--red);
-  pointer-events: none;
-  transform-origin: left center;
-  animation: brand-logo-sweep 820ms var(--ease) both;
-}
-
-.brand:hover img {
-  transform: scale(1.015);
-}
-
-@keyframes brand-logo-reveal {
-  0% {
-    opacity: 0;
-    clip-path: inset(0 100% 0 0);
-    transform: translateX(-0.45rem);
-  }
-
-  34% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-    clip-path: inset(0 0 0 0);
-    transform: translateX(0);
-  }
-}
-
-@keyframes brand-logo-sweep {
-  0% {
-    opacity: 0;
-    transform: translateX(-105%) scaleX(0.2);
-  }
-
-  18% {
-    opacity: 1;
-  }
-
-  62% {
-    opacity: 1;
-    transform: translateX(0) scaleX(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateX(105%) scaleX(0.2);
-  }
 }
 
 .desktop-nav {
@@ -1690,18 +1629,6 @@ h3 {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  .brand img {
-    opacity: 1;
-    clip-path: none;
-    transform: none;
-    animation: none !important;
-  }
-
-  .brand::after {
-    opacity: 0;
-    animation: none !important;
   }
 }
 
